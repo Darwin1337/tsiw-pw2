@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
     res.status(200).json({ success: 'home - tutorials api' });
 });
 
-app.use('/tutorials', require('./routes/tutorials.routes.js'))
+app.use('/tutorials', require('./routes/tutorials.routes.js'));
 
 app.all('*', function (req, res) {
     res.status(404).json({error: 'Resource not found'});

@@ -18,7 +18,7 @@ exports.create = (req, res) => {
                     if (err) {
                         res.status(500).send({message: err.message || 'Some error occurred while retrieving tutorials'});
                     } else {
-                        res.status(201).json({success: 'Tutorial created successfully', location: `/Tutorials/${data.insertId}`});
+                        res.status(201).json({message: 'Tutorial created successfully', location: `/Tutorials/${data.insertId}`});
                     } 
                 });
             } else {
@@ -50,7 +50,7 @@ exports.update = (req, res) => {
                     if (err) {
                         res.status(500).send({message: err.message || 'Some error occurred while retrieving tutorials'});
                     } else {
-                        data.affectedRows > 0 ? res.status(200).json({success: 'Tutorial updated successfully', location: `/Tutorials/${req.params.tutorialID}`}) : res.status(404).json({error: 'The ID specified does not belong to any tutorial'});
+                        data.affectedRows > 0 ? res.status(200).json({message: 'Tutorial updated successfully', location: `/Tutorials/${req.params.tutorialID}`}) : res.status(404).json({error: 'The ID specified does not belong to any tutorial'});
                     } 
                 });
             } else {
@@ -69,7 +69,7 @@ exports.delete = (req, res) => {
         if (err) {
             res.status(500).send({message: err.message || 'Some error occurred while retrieving tutorials'});
         } else {
-            data.affectedRows > 0 ? res.status(200).json({success: "Tutorial successfully deleted", location: `/movies/${req.params.tutorialID}`}) : res.status(404).json({error: 'The ID specified does not belong to any tutorial'});
+            data.affectedRows > 0 ? res.status(200).json({message: "Tutorial successfully deleted", location: `/movies/${req.params.tutorialID}`}) : res.status(404).json({error: 'The ID specified does not belong to any tutorial'});
         } 
     });
 };
