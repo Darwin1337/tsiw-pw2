@@ -69,7 +69,7 @@ exports.delete = (req, res) => {
         if (err) {
             res.status(500).send({message: err.message || 'Some error occurred while retrieving tutorials'});
         } else {
-            data.affectedRows > 0 ? res.status(200).json({message: "Tutorial successfully deleted", location: `/movies/${req.params.tutorialID}`}) : res.status(404).json({error: 'The ID specified does not belong to any tutorial'});
+            data.affectedRows > 0 ? res.status(204).json({message: "Tutorial successfully deleted", location: `/movies/${req.params.tutorialID}`}) : res.status(404).json({error: 'The ID specified does not belong to any tutorial'});
         } 
     });
 };

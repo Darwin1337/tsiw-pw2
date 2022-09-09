@@ -9,9 +9,7 @@ const host = process.env.HOST || '127.0.0.1';
 app.use(cors());
 app.use(express.json());
 
-app.get('/', function (req, res) { res.status(200).json({success: 'home - tutorials api'}); });
-
-app.use('/tutorials', require('./routes/tutorials.routes.js'));
+app.use('/esmad_api', require('./routes/students.routes.js'));
 
 app.all('*', function (req, res) { res.status(404).json({error: 'Resource not found'}); });
 
